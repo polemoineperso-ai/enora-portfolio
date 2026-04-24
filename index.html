@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enora Lemoine — Communication & Marketing Sportif</title>
+  <meta name="description" content="Portfolio d'Enora Lemoine, chargée de communication et marketing sportif. En recherche d'alternance Mastère pour septembre 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #080808;
+      --surface: #121212;
+      --surface2: #1a1a1a;
+      --accent: #c8ff00;
+      --accent2: #00d4ff;
+      --white: #f0f0f0;
+      --muted: #666;
+      --border: #222;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── BARRE NAV ─────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      height: 60px;
+      background: rgba(8,8,8,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    /* ── HERO ──────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 100px clamp(1.5rem, 5vw, 4rem) 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%; right: -10%;
+      width: 60vw; height: 60vw;
+      background: radial-gradient(circle, rgba(200,255,0,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-text { position: relative; z-index: 1; }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(200,255,0,0.08);
+      border: 1px solid rgba(200,255,0,0.3);
+      padding: 0.35em 0.9em;
+      border-radius: 2px;
+      margin-bottom: 1.8rem;
+      animation: fadeUp 0.6s 0.1s both;
+    }
+
+    .hero-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 9vw, 8rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s 0.2s both;
+    }
+
+    .hero-name span { color: var(--accent); }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: #aaa;
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      line-height: 1.7;
+      animation: fadeUp 0.6s 0.35s both;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.45s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8em 1.8em;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--black);
+    }
+
+    .btn-primary:hover {
+      background: #d4ff26;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(200,255,0,0.25);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid #333;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeLeft 0.8s 0.3s both;
+    }
+
+    .hero-card {
+      position: relative;
+      width: 340px;
+      aspect-ratio: 3/4;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .hero-card::before {
+      content: 'ENORA';
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 7rem;
+      color: rgba(200,255,0,0.04);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-card-inner {
+      padding: 2rem;
+      background: linear-gradient(to top, rgba(8,8,8,0.95) 60%, transparent);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-stat {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-lbl {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-card-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0.6;
+    }
+
+    /* ── BANDE SCROLL ──────────────────────────── */
+    .ticker {
+      overflow: hidden;
+      background: var(--accent);
+      padding: 0.7rem 0;
+      white-space: nowrap;
+    }
+
+    .ticker-track {
+      display: inline-block;
+      animation: ticker 22s linear infinite;
+    }
+
+    .ticker-track span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      color: var(--black);
+      padding: 0 2rem;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── SECTION GÉNÉRIQUE ─────────────────────── */
+    section {
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 3rem;
+    }
+
+    /* ── À PROPOS ──────────────────────────────── */
+    .about {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: #aaa;
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+    }
+
+    .about-text strong { color: var(--white); font-weight: 600; }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.8rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35em 0.85em;
+      border-radius: 2px;
+      border: 1px solid #2a2a2a;
+      color: #888;
+    }
+
+    .tag.accent {
+      border-color: rgba(200,255,0,0.4);
+      color: var(--accent);
+      background: rgba(200,255,0,0.06);
+    }
+
+    .about-numbers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .kpi-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .kpi-box:hover { border-color: rgba(200,255,0,0.3); }
+
+    .kpi-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .kpi-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ── EXPÉRIENCES ───────────────────────────── */
+    .xp-list { display: flex; flex-direction: column; gap: 0; }
+
+    .xp-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .xp-item:first-child { border-top: 1px solid var(--border); }
+    .xp-item:hover { background: rgba(255,255,255,0.015); }
+
+    .xp-date {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 0.2rem;
+    }
+
+    .xp-date .current {
+      display: inline-block;
+      color: var(--accent);
+      border: 1px solid rgba(200,255,0,0.4);
+      background: rgba(200,255,0,0.06);
+      padding: 0.1em 0.5em;
+      border-radius: 2px;
+      font-size: 0.65rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .xp-org {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+
+    .xp-role {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.03em;
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+
+    .xp-desc {
+      font-size: 0.88rem;
+      color: #888;
+      line-height: 1.7;
+    }
+
+    .xp-desc li {
+      list-style: none;
+      padding-left: 1rem;
+      position: relative;
+      margin-bottom: 0.3rem;
+    }
+
+    .xp-desc li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      opacity: 0.5;
+    }
+
+    .xp-highlight {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-top: 0.6rem;
+      background: rgba(200,255,0,0.08);
+      padding: 0.2em 0.6em;
+      border-radius: 2px;
+    }
+
+    .btn-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid rgba(200,255,0,0.3);
+      padding: 0.4em 0.9em;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-pdf:hover {
+      background: rgba(200,255,0,0.1);
+    }
+
+    /* ── RÉALISATIONS ──────────────────────────── */
+    .real-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .real-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .real-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(200,255,0,0.25);
+    }
+
+    .real-card--featured {
+      grid-column: 1 / -1;
+      background: var(--surface2);
+      border-color: rgba(200,255,0,0.2);
+    }
+
+    .real-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .real-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+    .real-badge {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25em 0.7em;
+      border-radius: 2px;
+      border: 1px solid #2a2a2a;
+      color: #666;
+    }
+
+    .real-badge--accent {
+      border-color: rgba(200,255,0,0.4);
+      color: var(--accent);
+      background: rgba(200,255,0,0.06);
+    }
+
+    .real-year {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .real-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+    }
+
+    .real-card--featured .real-title { font-size: 2rem; }
+
+    .real-org {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .real-desc {
+      font-size: 0.84rem;
+      color: #888;
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .real-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .real-kpis {
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    .real-kpi { display: flex; flex-direction: column; gap: 0.1rem; }
+
+    .real-kpi-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .real-kpi-lbl {
+      font-size: 0.65rem;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    @media (max-width: 768px) {
+      .real-grid { grid-template-columns: 1fr; }
+      .real-card--featured { grid-column: 1; }
+    }
+
+    /* ── COMPÉTENCES ───────────────────────────── */
+    .skills-bg {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .skill-category {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.8rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-3px);
+      border-color: rgba(200,255,0,0.25);
+    }
+
+    .skill-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .skill-cat-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .skill-list li {
+      font-size: 0.82rem;
+      color: #999;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-list li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── FORMATION ─────────────────────────────── */
+    .formation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .formation-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem;
+      transition: border-color 0.2s;
+    }
+
+    .formation-card.main { border-color: rgba(200,255,0,0.3); }
+
+    .formation-card:hover { border-color: rgba(200,255,0,0.4); }
+
+    .formation-year {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .formation-school {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .formation-degree {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      line-height: 1.1;
+      margin-bottom: 0.6rem;
+    }
+
+    .formation-spec {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── BÉNÉVOLAT ─────────────────────────────── */
+    .engagements {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+
+    .engagements-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .engagement-card {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .engagement-card:hover { border-color: rgba(200,255,0,0.25); }
+
+    .engagement-emoji { font-size: 1.5rem; margin-bottom: 0.8rem; }
+
+    .engagement-role {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .engagement-org {
+      font-size: 0.78rem;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .engagement-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── CONTACT ───────────────────────────────── */
+    .contact-section {
+      text-align: center;
+      padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 5vw, 4rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      bottom: -20%; left: 50%;
+      transform: translateX(-50%);
+      width: 60vw; height: 50vh;
+      background: radial-gradient(ellipse, rgba(200,255,0,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-section .section-label { justify-content: center; }
+
+    .contact-section .section-title {
+      font-size: clamp(3rem, 8vw, 7rem);
+      margin-bottom: 1rem;
+    }
+
+    .contact-intro {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 3rem;
+      font-weight: 300;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .contact-info {
+      font-size: 0.82rem;
+      color: #555;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-info a {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-info a:hover { color: var(--accent); }
+
+    /* ── FOOTER ────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: #444;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── ANIMATIONS ────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── MOBILE ────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 80px;
+      }
+
+      .hero-visual { display: none; }
+
+      .about-grid,
+      .formation-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+      .skills-grid,
+      .engagements-grid { grid-template-columns: 1fr 1fr; }
+
+      .xp-item {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+
+      .xp-date { display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap; }
+    }
+
+    @media (max-width: 480px) {
+      .skills-grid,
+      .engagements-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">EL</a>
+  <ul class="nav-links">
+    <li><a href="#apropos">Profil</a></li>
+    <li><a href="#experiences">Expériences</a></li>
+    <li><a href="#realisations">Réalisations</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#formation">Formation</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:enoralemoine04@gmail.com" class="btn btn-primary" style="padding:0.5em 1.2em;font-size:0.75rem">Me contacter</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-tag">✦ Disponible — Alternance Sept. 2026</div>
+    <h1 class="hero-name">
+      ENORA<br /><span>LEMOINE</span>
+    </h1>
+    <p class="hero-desc">
+      Chargée de Communication &amp; Marketing Sportif.<br />
+      En Mastère Management du Sport — spécialité Médias.<br />
+      Je crée du contenu qui engage, des événements qui marquent, des marques qui comptent dans le sport.
+    </p>
+    <div class="hero-cta">
+      <a href="mailto:enoralemoine04@gmail.com" class="btn btn-primary">
+        ✦ Me contacter
+      </a>
+      <a href="https://www.linkedin.com/in/enora-lemoine-prevost-12aab8252" target="_blank" class="btn btn-ghost">
+        LinkedIn →
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-card-inner">
+        <div class="hero-stat">
+          <div class="stat-item">
+            <div class="stat-num">2K+</div>
+            <div class="stat-lbl">Adhérents<br/>gérés</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">+35%</div>
+            <div class="stat-lbl">Croissance<br/>adhérents</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">8</div>
+            <div class="stat-lbl">Sponsors<br/>prospectés</div>
+          </div>
+        </div>
+        <div class="hero-card-tag">Communication · Événementiel · Médias sportifs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Urban Mixte Cup</span><span>·</span>
+    <span>Adidas × FC 93</span><span>·</span>
+    <span>Communication Digitale</span><span>·</span>
+    <span>Marketing Sportif</span><span>·</span>
+    <span>Événementiel</span><span>·</span>
+    <span>Community Management</span><span>·</span>
+    <span>Dossiers Sponsoring</span><span>·</span>
+    <span>Canva &amp; CapCut</span><span>·</span>
+    <span>CRM Adhérents</span><span>·</span>
+    <span>Médias Sportifs</span><span>·</span>
+    <span>Urban Mixte Cup</span><span>·</span>
+    <span>Adidas × FC 93</span><span>·</span>
+    <span>Communication Digitale</span><span>·</span>
+    <span>Marketing Sportif</span><span>·</span>
+    <span>Événementiel</span><span>·</span>
+    <span>Community Management</span><span>·</span>
+    <span>Dossiers Sponsoring</span><span>·</span>
+    <span>Canva &amp; CapCut</span><span>·</span>
+    <span>CRM Adhérents</span><span>·</span>
+    <span>Médias Sportifs</span><span>·</span>
+  </div>
+</div>
+
+<!-- À PROPOS -->
+<section class="about" id="apropos">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p class="section-label">À propos</p>
+      <h2 class="section-title" style="font-size:clamp(2rem,4vw,3.2rem);margin-bottom:1.5rem">
+        LA COMM SPORTIVE,<br/>C'EST MON TERRAIN.
+      </h2>
+      <p>
+        Passionnée de sport depuis l'enfance — <strong>niveau 15 en tennis</strong> — j'ai construit un parcours entièrement tourné vers la communication et le marketing sportif. En alternance depuis 2024, j'interviens dans des clubs et fédérations où les enjeux sont concrets : fidéliser des adhérents, construire une image de marque, mobiliser des sponsors.
+      </p>
+      <p>
+        Aujourd'hui en <strong>Mastère Management du Sport — spécialité Médias</strong> à MediaSchool Sports Paris, je recherche une alternance à partir de <strong>septembre 2026</strong> pour approfondir cette expertise dans un environnement où stratégie de marque et médias sportifs sont au cœur des missions.
+      </p>
+      <div class="about-tags">
+        <span class="tag accent">Alternance sept. 2026</span>
+        <span class="tag accent">4j entreprise / 1j formation</span>
+        <span class="tag">Vincennes (94)</span>
+        <span class="tag">IDF</span>
+        <span class="tag">Anglais pro</span>
+        <span class="tag">BAFA</span>
+      </div>
+    </div>
+
+    <div class="about-numbers reveal" style="transition-delay:0.15s">
+      <div class="kpi-box">
+        <div class="kpi-num">2K+</div>
+        <div class="kpi-label">Adhérents dans les clubs accompagnés (FC 93 + Paris Université Club)</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-num">+35%</div>
+        <div class="kpi-label">Croissance des adhésions au Paris Université Club — section Judo</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-num">8</div>
+        <div class="kpi-label">Sponsors prospectés dans le dossier partenaires Trek'in Gazelle</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-num">3 ans</div>
+        <div class="kpi-label">D'alternance en communication sportive opérationnelle</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPÉRIENCES -->
+<section id="experiences">
+  <p class="section-label reveal">Expériences professionnelles</p>
+  <h2 class="section-title reveal">TERRAIN</h2>
+
+  <div class="xp-list">
+
+    <div class="xp-item reveal">
+      <div class="xp-date">
+        <div class="current">En poste</div>
+        <div>Sept. 2025<br/>– Aujourd'hui</div>
+      </div>
+      <div>
+        <p class="xp-org">Paris Université Club — Section Judo</p>
+        <h3 class="xp-role">Chargée de Développement &amp; d'Accueil</h3>
+        <ul class="xp-desc">
+          <li>Pilotage de la communication interne et externe : newsletters, réseaux sociaux, affichage</li>
+          <li>Gestion des inscriptions, suivi des adhérents, reporting à la direction</li>
+          <li>Coordination logistique des compétitions et événements de la section</li>
+          <li>Suivi comptable des cotisations et encaissement</li>
+        </ul>
+        <span class="xp-highlight">+35% d'adhérents sur la saison</span>
+      </div>
+    </div>
+
+    <div class="xp-item reveal">
+      <div class="xp-date">2024 – 2025</div>
+      <div>
+        <p class="xp-org">Football Club 93 &amp; Olympique Pantin Bobigny</p>
+        <h3 class="xp-role">Assistante Administrative &amp; Communication</h3>
+        <ul class="xp-desc">
+          <li>Création de supports : affiches de matchs, dossiers de sponsoring, rapport d'activité annuel</li>
+          <li>Organisation d'événements : stages, accueil Coupe de France</li>
+          <li>Gestion administrative : inscriptions, subventions, déplacements — 2 000 adhérents</li>
+          <li>Gestion de la billetterie lors des rencontres officielles</li>
+        </ul>
+        <span class="xp-highlight">2 000 adhérents · Coupe de France</span>
+      </div>
+    </div>
+
+    <div class="xp-item reveal">
+      <div class="xp-date">2024</div>
+      <div>
+        <p class="xp-org">Trek 'in Gazelle</p>
+        <h3 class="xp-role">Community Manager</h3>
+        <ul class="xp-desc">
+          <li>Animation des réseaux sociaux : création de contenu, planning éditorial, montage CapCut</li>
+          <li>Rédaction du dossier partenaires pour la prospection commerciale</li>
+        </ul>
+        <span class="xp-highlight">8 sponsors prospectés</span>
+      </div>
+    </div>
+
+    <div class="xp-item reveal">
+      <div class="xp-date">2023</div>
+      <div>
+        <p class="xp-org">Option Tennis</p>
+        <h3 class="xp-role">Assistante Communication &amp; Événementiel</h3>
+        <ul class="xp-desc">
+          <li>Gestion des réseaux sociaux et création de contenu éditorial (Canva, Instagram)</li>
+          <li>Organisation logistique de stages, voyages et tournois nationaux</li>
+          <li>Conception et animation d'événements pour les adhérents</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RÉALISATIONS -->
+<section id="realisations">
+  <p class="section-label reveal">Réalisations</p>
+  <h2 class="section-title reveal">PROJETS</h2>
+
+  <div class="real-grid">
+
+    <!-- Urban Mixte Cup -->
+    <div class="real-card real-card--featured reveal">
+      <div class="real-card-top">
+        <div class="real-badges">
+          <span class="real-badge real-badge--accent">Événementiel</span>
+          <span class="real-badge">Stratégie digitale</span>
+          <span class="real-badge">Sponsoring</span>
+        </div>
+        <span class="real-year">2025 – 2026</span>
+      </div>
+      <h3 class="real-title">URBAN MIXTE CUP</h3>
+      <p class="real-org">FC 93 × Adidas × Booska-P</p>
+      <p class="real-desc">
+        Conception et communication d'un tournoi de football mixte U15 — 16 équipes, 2 000 participants attendus. Partenariats signés avec Adidas (équipements + Stand Skills Arena), Le Five Paris 18e (lieu), et Booska-P (partenaire média officiel). Stratégie digitale complète : filtre TikTok officiel, Media Day, soirée presse, retro-planning J-30.
+      </p>
+      <div class="real-card-footer">
+        <div class="real-kpis">
+          <div class="real-kpi"><span class="real-kpi-num">95K€</span><span class="real-kpi-lbl">Budget événement</span></div>
+          <div class="real-kpi"><span class="real-kpi-num">2 000</span><span class="real-kpi-lbl">Participants</span></div>
+          <div class="real-kpi"><span class="real-kpi-num">3</span><span class="real-kpi-lbl">Partenaires majeurs</span></div>
+        </div>
+        <a href="./urban_mixte_cup.pdf" target="_blank" class="btn-pdf">↓ Voir le dossier</a>
+      </div>
+    </div>
+
+    <!-- Rapport FC 93 -->
+    <div class="real-card reveal" style="transition-delay:0.08s">
+      <div class="real-card-top">
+        <div class="real-badges">
+          <span class="real-badge real-badge--accent">Rapport annuel</span>
+          <span class="real-badge">Communication</span>
+        </div>
+        <span class="real-year">Saison 2024/25</span>
+      </div>
+      <h3 class="real-title">RAPPORT D'ACTIVITÉ FC 93</h3>
+      <p class="real-org">Football Club 93 — Bobigny</p>
+      <p class="real-desc">
+        Rédaction et mise en page du rapport annuel du club (National 2). Partenariats Nike &amp; Tiakola documentés, bilan sportif, données administratives et chiffres de licenciés. Format éditorial soigné avec identité visuelle cohérente.
+      </p>
+      <div class="real-card-footer">
+        <div class="real-kpis">
+          <div class="real-kpi"><span class="real-kpi-num">788</span><span class="real-kpi-lbl">Licenciés</span></div>
+          <div class="real-kpi"><span class="real-kpi-num">+13%</span><span class="real-kpi-lbl">Licenciés féminines</span></div>
+        </div>
+        <a href="./Rapport_d_activité_saison_20232024__1_.pdf" target="_blank" class="btn-pdf">↓ Voir le rapport</a>
+      </div>
+    </div>
+
+    <!-- Dossier Maroc -->
+    <div class="real-card reveal" style="transition-delay:0.16s">
+      <div class="real-card-top">
+        <div class="real-badges">
+          <span class="real-badge real-badge--accent">Dossier sponsoring</span>
+          <span class="real-badge">Événementiel</span>
+        </div>
+        <span class="real-year">2025</span>
+      </div>
+      <h3 class="real-title">À LA CONQUÊTE DU MAROC</h3>
+      <p class="real-org">Football Club 93 — Tournoi Ibn Battuta, Tanger</p>
+      <p class="real-desc">
+        Création du dossier de sponsoring pour le voyage des U15/U16 au Tournoi Ibn Battuta à Tanger (27 mai – 1er juin 2025). Storytelling, objectifs, budget détaillé, contreparties mécénat (CERFA 66%).
+      </p>
+      <div class="real-card-footer">
+        <div class="real-kpis">
+          <div class="real-kpi"><span class="real-kpi-num">16 980€</span><span class="real-kpi-lbl">Budget à financer</span></div>
+          <div class="real-kpi"><span class="real-kpi-num">19</span><span class="real-kpi-lbl">Joueurs accompagnés</span></div>
+        </div>
+        <a href="./A_la_conqute_du_Maroc_FC_93.pdf" target="_blank" class="btn-pdf">↓ Voir le dossier</a>
+      </div>
+    </div>
+
+    <!-- Projet Club PUC Judo -->
+    <div class="real-card reveal" style="transition-delay:0.24s">
+      <div class="real-card-top">
+        <div class="real-badges">
+          <span class="real-badge real-badge--accent">Stratégie club</span>
+          <span class="real-badge">Document institutionnel</span>
+        </div>
+        <span class="real-year">Saison 2025/26</span>
+      </div>
+      <h3 class="real-title">PROJET CLUB PUC JUDO</h3>
+      <p class="real-org">Paris Université Club — Section Judo</p>
+      <p class="real-desc">
+        Rédaction du document stratégique saison 2025/2026 : développement sportif (programme Parcours Performance avec judokate internationale), développement adhérents, projet socio-éducatif (programme 1000 Dojos, Octobre Rose, inclusion). 16 pages structurées.
+      </p>
+      <div class="real-card-footer">
+        <div class="real-kpis">
+          <div class="real-kpi"><span class="real-kpi-num">230</span><span class="real-kpi-lbl">Adhérents saison</span></div>
+          <div class="real-kpi"><span class="real-kpi-num">+42%</span><span class="real-kpi-lbl">vs saison précédente</span></div>
+        </div>
+        <a href="./Projet_Club_Judo.pdf" target="_blank" class="btn-pdf">↓ Voir le projet</a>
+      </div>
+    </div>
+
+    <!-- PUC Rentrée sportive -->
+    <div class="real-card reveal" style="transition-delay:0.32s">
+      <div class="real-card-top">
+        <div class="real-badges">
+          <span class="real-badge real-badge--accent">Communication</span>
+          <span class="real-badge">Réseaux sociaux</span>
+        </div>
+        <span class="real-year">2025</span>
+      </div>
+      <h3 class="real-title">COMMUNICATION PUC JUDO</h3>
+      <p class="real-org">Paris Université Club — Section Judo</p>
+      <p class="real-desc">
+        Pilotage de la stratégie communication digitale : flyer rentrée sportive 2025/2026, gestion des réseaux sociaux (Instagram, Facebook, X), newsletters internes, promotion des cours et compétitions. Animation d'une communauté multiplateforme.
+      </p>
+      <div class="real-card-footer">
+        <div class="real-kpis">
+          <div class="real-kpi"><span class="real-kpi-num">673</span><span class="real-kpi-lbl">Followers Instagram</span></div>
+          <div class="real-kpi"><span class="real-kpi-num">773</span><span class="real-kpi-lbl">Followers Facebook</span></div>
+        </div>
+        <a href="./PUC-JUDO-Rentree-sportive-2025-2026.pdf" target="_blank" class="btn-pdf">↓ Voir le flyer</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section class="skills-bg" id="competences">
+  <p class="section-label reveal">Compétences</p>
+  <h2 class="section-title reveal">OUTILS &amp; SAVOIR-FAIRE</h2>
+
+  <div class="skills-grid">
+    <div class="skill-category reveal">
+      <div class="skill-icon">📱</div>
+      <h3 class="skill-cat-title">Communication Digitale</h3>
+      <ul class="skill-list">
+        <li>Canva — création graphique</li>
+        <li>CapCut — montage vidéo / Reels</li>
+        <li>Instagram &amp; réseaux sociaux</li>
+        <li>Planning éditorial</li>
+        <li>Photographie sportive</li>
+      </ul>
+    </div>
+
+    <div class="skill-category reveal" style="transition-delay:0.1s">
+      <div class="skill-icon">🎪</div>
+      <h3 class="skill-cat-title">Événementiel</h3>
+      <ul class="skill-list">
+        <li>Coordination logistique</li>
+        <li>Accueil &amp; gestion de publics</li>
+        <li>Organisation de compétitions</li>
+        <li>Stages &amp; tournois</li>
+        <li>Dossiers de sponsoring</li>
+      </ul>
+    </div>
+
+    <div class="skill-category reveal" style="transition-delay:0.2s">
+      <div class="skill-icon">📊</div>
+      <h3 class="skill-cat-title">Gestion &amp; Admin</h3>
+      <ul class="skill-list">
+        <li>CRM &amp; gestion des adhérents</li>
+        <li>Billetterie sportive</li>
+        <li>Microsoft Office</li>
+        <li>Notion</li>
+        <li>Suivi comptable</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATION -->
+<section id="formation">
+  <p class="section-label reveal">Formation</p>
+  <h2 class="section-title reveal">PARCOURS</h2>
+
+  <div class="formation-grid">
+    <div class="formation-card main reveal">
+      <p class="formation-year">2025 – 2027 · En cours</p>
+      <p class="formation-school">MediaSchool Sports Paris</p>
+      <h3 class="formation-degree">Mastère Management du Sport — Spécialité Médias</h3>
+      <p class="formation-spec">RNCP Niveau 7 · Rythme 4j entreprise / 1j formation<br/>
+      Stratégie marketing &amp; comm., droits sportifs, data strategy, production médias, IA appliquée</p>
+    </div>
+
+    <div class="reveal" style="display:flex;flex-direction:column;gap:1.5rem;transition-delay:0.1s">
+      <div class="formation-card">
+        <p class="formation-year">2022 – 2025</p>
+        <p class="formation-school">MediaSchool Sports Paris</p>
+        <h3 class="formation-degree">Bachelor Marketing, Communication &amp; Événementiel</h3>
+        <p class="formation-spec">RNCP Niveau 6</p>
+      </div>
+      <div class="formation-card">
+        <p class="formation-year">2022</p>
+        <p class="formation-school">Lycée</p>
+        <h3 class="formation-degree">Baccalauréat SES / HGGSP</h3>
+        <p class="formation-spec">+ BAFA — Brevet d'Animateur (2021)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENTS -->
+<section class="engagements" id="engagements">
+  <p class="section-label reveal">Engagements &amp; Bénévolat</p>
+  <h2 class="section-title reveal">HORS DU BUREAU</h2>
+
+  <div class="engagements-grid">
+    <div class="engagement-card reveal">
+      <div class="engagement-emoji">🎾</div>
+      <p class="engagement-role">Membre du Bureau — Partenariats &amp; Subventions</p>
+      <p class="engagement-org">Tennis Club de Villemomble (TCVS)</p>
+      <p class="engagement-desc">2025 – 2026 · Développement des partenariats locaux et gestion des dossiers de subventions</p>
+    </div>
+
+    <div class="engagement-card reveal" style="transition-delay:0.1s">
+      <div class="engagement-emoji">🏃</div>
+      <p class="engagement-role">Bénévole Événementiel</p>
+      <p class="engagement-org">ASO — Marathon de Paris</p>
+      <p class="engagement-desc">2023 · Ravitaillement, animation au salon des sports, coordination des changements de sas</p>
+    </div>
+
+    <div class="engagement-card reveal" style="transition-delay:0.2s">
+      <div class="engagement-emoji">🏀</div>
+      <p class="engagement-role">Bénévole Opérations Match</p>
+      <p class="engagement-org">Paris Basketball</p>
+      <p class="engagement-desc">2022 – 2023 · Accueil du public, gestion de la billetterie et animation des soirs de match</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <p class="section-label reveal">Contact</p>
+  <h2 class="section-title reveal">ON TRAVAILLE<br/><span style="color:var(--accent)">ENSEMBLE ?</span></h2>
+  <p class="contact-intro reveal">
+    En recherche d'une alternance Mastère à partir de <strong>septembre 2026</strong>.<br/>
+    Rythme 4 jours entreprise / 1 jour formation.
+  </p>
+
+  <div class="contact-links reveal">
+    <a href="mailto:enoralemoine04@gmail.com" class="btn btn-primary">
+      ✦ Envoyer un email
+    </a>
+    <a href="https://www.linkedin.com/in/enora-lemoine-prevost-12aab8252" target="_blank" class="btn btn-ghost">
+      Voir LinkedIn →
+    </a>
+    <a href="tel:0783016903" class="btn btn-ghost">
+      07 83 01 69 03
+    </a>
+  </div>
+
+  <div class="contact-info reveal">
+    <a href="mailto:enoralemoine04@gmail.com">enoralemoine04@gmail.com</a>
+    <span>·</span>
+    <span>Vincennes (94) — Île-de-France</span>
+    <span>·</span>
+    <a href="https://www.linkedin.com/in/enora-lemoine-prevost-12aab8252" target="_blank">linkedin.com/in/enora-lemoine-prevost</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Enora Lemoine</span>
+  <span>Communication &amp; Marketing Sportif — Mastère MediaSchool Sports Paris</span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Stagger delay sur les grilles
+  document.querySelectorAll('.skills-grid .skill-category, .engagements-grid .engagement-card, .about-numbers .kpi-box').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.08}s`;
+  });
+</script>
+</body>
+</html>
