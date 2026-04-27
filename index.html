@@ -854,21 +854,24 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
 
+      /* Hero : vidéo en haut, texte en dessous */
       .hero {
-        grid-template-columns: 1fr;
-        padding-top: 80px;
-        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        min-height: unset;
         overflow: hidden;
       }
 
-      /* Vidéo en fond plein sur mobile */
       .hero-visual {
-        position: absolute;
-        inset: 0;
+        display: block;
+        position: relative;
         width: 100%;
-        height: 100%;
-        z-index: 0;
-        pointer-events: none;
+        height: 55vw;
+        max-height: 60vh;
+        min-height: 240px;
+        overflow: hidden;
+        flex-shrink: 0;
       }
 
       .hero-card {
@@ -876,19 +879,20 @@
         height: 100%;
         border: none;
         border-radius: 0;
-        background: transparent;
+        aspect-ratio: unset;
       }
 
       .hero-card::before {
-        background: linear-gradient(to bottom, rgba(8,8,8,0.55) 0%, rgba(8,8,8,0.75) 100%);
+        background: linear-gradient(to bottom, transparent 60%, rgba(8,8,8,0.6) 100%);
       }
 
       .hero-card-inner { display: none; }
 
       .hero-text {
         position: relative;
-        z-index: 2;
-        padding-bottom: 3rem;
+        z-index: 1;
+        background: var(--bg);
+        padding: 2rem 1.5rem 3rem;
       }
 
       .about-grid,
